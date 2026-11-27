@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>天猫处方采集：服务器设置</title>
+    <link rel="stylesheet" href="options.css">
+  </head>
+  <body>
+    <main>
+      <h1>服务器接收设置</h1>
+      <p>扩展会把包含处方和订单字段的汇总批次发送到这里。请仅配置经过授权的内部地址。</p>
+      <label>
+        <span>接收地址</span>
+        <input id="endpoint" type="url" placeholder="http://172.21.0.2:8095/internal/tmall/prescription-batches">
+      </label>
+      <label>
+        <span>接收令牌</span>
+        <input id="token" type="password" autocomplete="off" placeholder="至少32位随机令牌">
+      </label>
+      <p class="note">令牌保存在当前 Chrome 扩展的本地存储中，不会写入采集 JSON 或日志。当前接收地址是可访问的内部服务器，不需要 SSH 隧道。</p>
+      <button id="save" type="button">保存设置并授权地址</button>
+      <p id="message" role="status"></p>
+    </main>
+    <script src="options.js"></script>
+  </body>
+</html>

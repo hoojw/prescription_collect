@@ -1,0 +1,109 @@
+:root {
+  color-scheme: light;
+  font-family: "Microsoft YaHei", system-ui, sans-serif;
+  color: #172033;
+  background: #f6f8fb;
+}
+
+body {
+  width: 350px;
+  margin: 0;
+}
+
+main {
+  padding: 16px;
+}
+
+h1 {
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.scope,
+.hint {
+  color: #5e6b82;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin: 14px 0;
+}
+
+dl div {
+  padding: 9px;
+  border: 1px solid #e0e6ef;
+  border-radius: 7px;
+  background: white;
+}
+
+dt {
+  color: #68758a;
+  font-size: 11px;
+}
+
+dd {
+  margin: 4px 0 0;
+  font-size: 17px;
+  font-weight: 700;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+}
+
+select,
+button {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 6px;
+  font: inherit;
+}
+
+select {
+  padding: 8px;
+  border: 1px solid #cbd5e1;
+  background: white;
+}
+
+#message {
+  min-height: 20px;
+  color: #1557b0;
+  font-size: 12px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+button {
+  padding: 8px 6px;
+  border: 1px solid #1f63c5;
+  background: #1f63c5;
+  color: white;
+  cursor: pointer;
+}
+
+button.secondary {
+  border-color: #93a1b5;
+  background: white;
+  color: #344156;
+}
+
+button.danger {
+  border-color: #d65a5a;
+  background: white;
+  color: #b42323;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}

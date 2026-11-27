@@ -1,0 +1,26 @@
+[Unit]
+Description=Lyky original-order callback receiver
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=lyky-order-callback
+Group=lyky-order-callback
+WorkingDirectory=/opt/lyky-order-callback
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=/etc/lyky-order-callback/callback.env
+ExecStart=/opt/lyky-order-callback/.venv/bin/python -m lyky_order_callback.server --config /etc/lyky-order-callback/config.json
+Restart=on-failure
+RestartSec=5s
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadOnlyPaths=/opt/lyky-order-callback /etc/lyky-order-callback
+ReadWritePaths=/var/lib/lyky-order-callback
+
+[Install]
+WantedBy=multi-user.target

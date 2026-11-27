@@ -1,0 +1,10 @@
+[Unit]
+Description=Watch the Tmall extension OCR inbox
+
+[Path]
+PathChanged=/var/lib/prescription-collector/stores/tmall-extension/inbox
+Unit=tmall-extension-processor.service
+
+[Install]
+WantedBy=multi-user.target
+

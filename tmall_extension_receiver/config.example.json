@@ -1,0 +1,11 @@
+{
+  "listen_host": "127.0.0.1",
+  "listen_port": 8095,
+  "ingest_path": "/internal/tmall/prescription-batches",
+  "output_dir": "/var/lib/prescription-collector/stores/tmall-extension",
+  "database_path": "/var/lib/prescription-collector/stores/tmall-extension/state.sqlite3",
+  "bearer_token_env": "TMALL_INGEST_TOKEN",
+  "max_body_bytes": 20971520,
+  "max_records_per_batch": 5000
+}
+

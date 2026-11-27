@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>处方号导出助手</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <h1>处方号导出助手</h1>
+      <p class="scope">监听当前管理页已加载的列表响应，只保留文件名、处方号和上传状态。</p>
+
+      <dl>
+        <div><dt>已捕获响应</dt><dd id="pages">0</dd></div>
+        <div><dt>接口总数</dt><dd id="api-total">-</dd></div>
+        <div><dt>唯一文件</dt><dd id="files">0</dd></div>
+        <div><dt>唯一处方号</dt><dd id="prescriptions">0</dd></div>
+        <div><dt>已上传</dt><dd id="uploaded">0</dd></div>
+        <div><dt>上传失败</dt><dd id="failed">0</dd></div>
+      </dl>
+
+      <label for="filter">导出范围</label>
+      <select id="filter">
+        <option value="all">全部状态</option>
+        <option value="uploaded">仅已上传</option>
+        <option value="failed">仅上传失败</option>
+        <option value="unknown">仅未知状态</option>
+      </select>
+
+      <p id="message" role="status"></p>
+
+      <div class="actions">
+        <button id="export-txt" type="button">导出处方号 TXT</button>
+        <button id="export-csv" type="button">导出明细 CSV</button>
+        <button id="copy" type="button" class="secondary">复制处方号</button>
+        <button id="clear" type="button" class="danger">清空本次缓存</button>
+      </div>
+
+      <p class="hint">安装或更新扩展后先刷新管理页，再执行查询。每翻一页或重新查询一次，扩展就自动累计并去重；关闭浏览器后缓存自动清空。</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

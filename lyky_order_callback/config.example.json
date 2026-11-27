@@ -1,0 +1,10 @@
+{
+  "listen_host": "127.0.0.1",
+  "listen_port": 8092,
+  "callback_path": "/callbacks/lyky/orders/original",
+  "database_path": "/var/lib/lyky-order-callback/orders.sqlite3",
+  "app_id": "REPLACE_LYKY_APP_ID",
+  "app_secret_env": "LYKY_APP_SECRET",
+  "timestamp_tolerance_seconds": 600,
+  "max_body_bytes": 1048576
+}

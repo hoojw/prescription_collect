@@ -1,0 +1,10 @@
+[Unit]
+Description=Run the Meituan Huan three-day reconciliation at 23:30 daily
+
+[Timer]
+OnCalendar=*-*-* 23:30:00
+Persistent=true
+Unit=prescription-collector-mt-34024037-backfill.service
+
+[Install]
+WantedBy=timers.target

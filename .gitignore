@@ -1,0 +1,77 @@
+# Python 虚拟环境
+.venv/
+venv/
+
+# Python 缓存和测试缓存
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# 环境变量、密钥和证书
+.env
+.env.*
+*.env
+!*.env.example
+*.pem
+*.key
+*.crt
+
+# 数据库及运行状态
+*.sqlite
+*.sqlite3
+*.db
+*.lock
+last_run.json
+
+# 运行输出
+runs/
+data/
+output/
+downloads/
+screenshots/
+images/
+retrieved_prescription_images_*/
+.ocr_review/
+
+# 日志和临时文件
+*.log
+logs/
+log/
+tmp/
+temp/
+.review_tmp/
+.review_tmp_*.py
+
+# 本地备份
+*.bak
+*.backup
+*.before-edit
+*~
+
+# 编辑器
+.vscode/
+.idea/
+.DS_Store
+
+# 门店级生成文件
+medicine_sku_[0-9]*.json
+drug_catalog_index.json
+medicine_sku_index.json
+
+# Local runtime configuration and generated diagnostic artifacts
+config.server.json
+config.local.json
+config.*.local.json
+*.env
+!*.env.example
+.codex*/
+extracted_prescription_*
+delivery_tests/
+test_runs/
+deploy/linux/stores.json
+deploy/linux/stores/
+*.zip
+*.rar

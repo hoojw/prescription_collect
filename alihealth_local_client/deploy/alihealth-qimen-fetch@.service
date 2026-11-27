@@ -1,0 +1,23 @@
+[Unit]
+Description=Fetch Alihealth prescriptions and match Tmall products for %i
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=prescription-collector
+Group=prescription-collector
+WorkingDirectory=/opt/prescription-collector
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=/etc/prescription-collector/qimen-caller.env
+ExecStart=/opt/prescription-collector/.venv/bin/python -m alihealth_local_client.fetch --config /etc/prescription-collector/stores/%i.json
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/prescription-collector
+
+[Install]
+WantedBy=multi-user.target

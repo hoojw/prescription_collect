@@ -1,0 +1,19 @@
+{
+  "output_dir": "/var/lib/prescription-collector/stores/tmall-extension",
+  "database_path": "/var/lib/prescription-collector/stores/tmall-extension/state.sqlite3",
+  "store_id": "tmall-extension",
+  "upload_hospital": "天津北辰保民医院久远互联网医院",
+  "request_retries": 3,
+  "request_timeout_seconds": 60,
+  "ocr_min_confidence": 0.75,
+  "ocr_cpu_threads": 3,
+  "drug_catalog_enabled": true,
+  "drug_catalog_index": "/opt/prescription-collector/drug_catalog_index.json",
+  "cos_upload_enabled": true,
+  "cos_folder_prefix": "/files",
+  "api_submit_enabled": true,
+  "api_url": "https://api.yizhujk.com/public/prescriptionUpload/importJson",
+  "api_platform": "TIANMAO",
+  "app_code": "pachong",
+  "api_timeout_seconds": 300
+}

@@ -1,0 +1,22 @@
+[Unit]
+Description=Manual sequential prescription collection for configured stores
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=root
+Group=root
+WorkingDirectory=/opt/prescription-collector
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=HOME=/var/lib/prescription-collector
+Environment=PADDLE_PDX_MODEL_SOURCE=BOS
+EnvironmentFile=/etc/prescription-collector/cos.env
+RuntimeDirectory=prescription-collector
+ExecStart=/opt/prescription-collector/run_collection_if_idle.sh -- /opt/prescription-collector/.venv/bin/python /opt/prescription-collector/collect_store_fleet.py --registry /etc/prescription-collector/stores.json --run-user prescription-collector
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/prescription-collector /run/prescription-collector

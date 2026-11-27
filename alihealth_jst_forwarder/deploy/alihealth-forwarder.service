@@ -1,0 +1,25 @@
+[Unit]
+Description=Alihealth Qimen relay inside Jushita
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=alihealth-forwarder
+Group=alihealth-forwarder
+WorkingDirectory=/opt/alihealth-forwarder
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+EnvironmentFile=/etc/alihealth-forwarder/forwarder.env
+ExecStart=/opt/alihealth-forwarder/.venv/bin/python -m alihealth_jst_forwarder.server --config /etc/alihealth-forwarder/config.json
+Restart=on-failure
+RestartSec=5s
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadOnlyPaths=/opt/alihealth-forwarder /etc/alihealth-forwarder
+
+[Install]
+WantedBy=multi-user.target

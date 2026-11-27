@@ -1,0 +1,20 @@
+[Unit]
+Description=Visible Jingdong Chrome login window for store %i
+After=network-online.target
+Wants=network-online.target
+Conflicts=jingdong-store-chrome@%i.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+Environment=DISPLAY=:1
+Environment=XAUTHORITY=/root/.Xauthority
+Environment=HOME=/opt/jingdong-chrome-profiles/%i
+EnvironmentFile=/etc/prescription-collector/browsers/%i.env
+ExecStart=/opt/google/chrome/chrome --no-sandbox --disable-dev-shm-usage --remote-debugging-address=127.0.0.1 --remote-debugging-port=${CHROME_PORT} --remote-allow-origins=* --user-data-dir=${CHROME_PROFILE} --noerrdialogs --no-first-run https://rx.shop.jd.com/rx/rxInfo_list.action
+UMask=0077
+NoNewPrivileges=true
+ProtectHome=read-only
+ProtectSystem=strict
+ReadWritePaths=/opt/jingdong-chrome-profiles /tmp

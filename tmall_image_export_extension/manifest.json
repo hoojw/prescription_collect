@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "天猫处方采集",
+  "version": "0.7.5",
+  "description": "按日期采集天猫已使用处方、详情图片地址及已完成订单字段，并交由内部服务器处理。",
+  "permissions": [
+    "activeTab",
+    "downloads",
+    "webNavigation",
+    "storage",
+    "scripting",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://alihealth.taobao.com/*",
+    "https://myseller.taobao.com/*",
+    "https://trade.taobao.com/*",
+    "https://alihealthyao.taobao.com/*",
+    "https://*.taobao.com/*",
+    "http://172.21.0.2:8095/*"
+  ],
+  "optional_host_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "service_worker": "service-worker.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://alihealth.taobao.com/b2c_sellercenter/citybuy/prescriptionlist*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://myseller.taobao.com/home.htm/trade-platform/tp/sold*"
+      ],
+      "js": [
+        "order-content.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "天猫处方采集",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}

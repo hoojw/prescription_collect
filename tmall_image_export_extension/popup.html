@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>天猫处方采集</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main>
+      <h1>天猫处方采集</h1>
+      <p class="scope">按处方开具日期采集“已使用”处方、详情和已完成订单；OCR由内部服务器执行。</p>
+
+      <div class="date-fields">
+        <label class="field" for="start-date">
+          <span>开始日期</span>
+          <input id="start-date" type="date">
+        </label>
+        <label class="field" for="end-date">
+          <span>结束日期</span>
+          <input id="end-date" type="date">
+        </label>
+      </div>
+      <p class="option-hint">日期按处方开具时间计算；订单查询会在前后各扩展一天后按订单号关联。</p>
+
+      <dl id="progress">
+        <div><dt>状态</dt><dd id="status">等待开始</dd></div>
+        <div><dt>进度</dt><dd id="count">0 / 0</dd></div>
+        <div><dt>分页</dt><dd id="page">-</dd></div>
+        <div><dt>成功</dt><dd id="success">0</dd></div>
+        <div><dt>失败</dt><dd id="failed">0</dd></div>
+        <div><dt>无订单跳过</dt><dd id="skipped-no-order">0</dd></div>
+        <div><dt>非已使用跳过</dt><dd id="skipped-not-used">0</dd></div>
+        <div><dt>批次</dt><dd id="batch">-</dd></div>
+      </dl>
+
+      <section class="risk-panel" aria-labelledby="risk-title">
+        <h2 id="risk-title">风控记录</h2>
+        <dl class="risk-stats">
+          <div><dt>累计事件</dt><dd id="risk-total">0</dd></div>
+          <div><dt>最近24小时</dt><dd id="risk-24h">0</dd></div>
+          <div><dt>最近7天</dt><dd id="risk-7d">0</dd></div>
+          <div><dt>最近发生</dt><dd id="risk-latest">-</dd></div>
+          <div><dt>平均间隔</dt><dd id="risk-average">-</dd></div>
+        </dl>
+        <div class="risk-actions">
+          <button id="export-risk" type="button" class="secondary small">导出记录</button>
+          <button id="clear-risk" type="button" class="secondary small danger">清空记录</button>
+        </div>
+        <small class="risk-note">同一标签页、同一原因在 5 分钟内重复出现只计一次。</small>
+      </section>
+
+      <p id="message" role="status"></p>
+
+      <div class="actions">
+        <button id="start" type="button">开始采集</button>
+        <button id="stop" type="button" class="secondary" disabled>停止</button>
+      </div>
+
+      <div class="server-actions">
+        <button id="open-options" type="button" class="secondary small">服务器设置</button>
+      </div>
+
+      <p class="hint">请在天猫处方列表页启动。插件会自动读取处方详情，并启动“已卖出宝贝”的已完成订单关联。</p>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

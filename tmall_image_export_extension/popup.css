@@ -1,0 +1,201 @@
+:root {
+  color-scheme: light;
+  font-family: "Microsoft YaHei", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  width: 330px;
+  color: #1f2329;
+  background: #f7f8fa;
+}
+
+main {
+  padding: 16px;
+}
+
+.field {
+  display: block;
+  margin: 14px 0;
+  padding: 10px;
+  border: 1px solid #e6e8eb;
+  border-radius: 8px;
+  background: #fafbfc;
+}
+
+.date-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.date-fields .field {
+  margin-bottom: 5px;
+}
+
+.date-fields input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 6px;
+  border: 1px solid #c8ccd2;
+  border-radius: 5px;
+}
+
+.option-hint {
+  margin: 0 0 10px;
+  color: #707780;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.field > span:first-child {
+  display: block;
+  margin-bottom: 7px;
+  font-weight: 600;
+}
+
+.input-line {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.input-line input {
+  width: 92px;
+  box-sizing: border-box;
+  padding: 6px 8px;
+  border: 1px solid #c8ccd2;
+  border-radius: 5px;
+}
+
+.field small {
+  display: block;
+  margin-top: 6px;
+  color: #707780;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+}
+
+h2 {
+  margin: 0 0 8px;
+  font-size: 14px;
+}
+
+.scope,
+.hint {
+  color: #646a73;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+dl {
+  margin: 14px 0 10px;
+  padding: 10px 12px;
+  border: 1px solid #dee0e3;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.risk-panel {
+  margin: 12px 0;
+  padding: 10px 12px;
+  border: 1px solid #ffd8bf;
+  border-radius: 8px;
+  background: #fff7e6;
+}
+
+.risk-stats {
+  margin: 0 0 8px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.risk-stats div {
+  grid-template-columns: 78px 1fr;
+}
+
+.risk-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.risk-note {
+  display: block;
+  margin-top: 7px;
+  color: #8c5a2b;
+  line-height: 1.5;
+}
+
+dl div {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 8px;
+  padding: 3px 0;
+  font-size: 13px;
+}
+
+dt {
+  color: #646a73;
+}
+
+dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+}
+
+#message {
+  min-height: 36px;
+  margin: 8px 0;
+  color: #d4380d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 84px;
+  gap: 8px;
+}
+
+.server-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+button {
+  min-height: 36px;
+  border: 0;
+  border-radius: 6px;
+  color: #fff;
+  background: #ff5000;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.secondary {
+  color: #3a3f45;
+  background: #e8e9eb;
+}
+
+button.small {
+  min-height: 30px;
+  font-size: 12px;
+}
+
+button.danger {
+  color: #a8071a;
+  background: #fff1f0;
+  border: 1px solid #ffa39e;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}

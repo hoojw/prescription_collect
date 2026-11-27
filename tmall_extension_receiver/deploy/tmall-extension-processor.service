@@ -1,0 +1,26 @@
+[Unit]
+Description=Serial Tmall prescription OCR queue processor
+After=network-online.target tmall-extension-receiver.service
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=prescription-collector
+Group=prescription-collector
+WorkingDirectory=/opt/prescription-collector
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=HOME=/var/lib/prescription-collector
+Environment=PADDLE_PDX_MODEL_SOURCE=BOS
+Environment=PADDLE_PDX_CPU_NUM_THREADS=3
+Environment=OMP_NUM_THREADS=1
+Environment=MKL_NUM_THREADS=1
+Environment=OPENBLAS_NUM_THREADS=1
+EnvironmentFile=/etc/prescription-collector/cos.env
+RuntimeDirectory=prescription-collector
+ExecStart=/usr/bin/flock /run/prescription-collector/prescription-automation.lock /opt/prescription-collector/.venv/bin/python /opt/prescription-collector/tmall_extension_processor.py --config /etc/prescription-collector/tmall-extension-processor.json
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/prescription-collector/stores/tmall-extension /run/prescription-collector

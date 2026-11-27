@@ -1,0 +1,25 @@
+{
+  "listen_host": "127.0.0.1",
+  "listen_port": 8088,
+  "api_paths": [
+    "/",
+    "/qimen"
+  ],
+  "qimen_methods": {
+    "search": "replacecompany.alihealth.prescriptions.search",
+    "detail": "replacecompany.alihealth.prescription.detail"
+  },
+  "allowed_caller_app_keys": [
+    "REPLACE_WITH_EXTERNAL_CALLER_APP_KEY"
+  ],
+  "max_body_bytes": 1048576,
+  "clock_skew_seconds": 600,
+  "max_page_size": 100,
+  "max_search_span_milliseconds": 2678400000,
+  "top_gateway_url": "https://eco.taobao.com/router/rest",
+  "top_sign_method": "hmac",
+  "top_timeout_seconds": 20,
+  "top_retries": 0,
+  "success_flag": "success",
+  "failure_flag": "failure"
+}

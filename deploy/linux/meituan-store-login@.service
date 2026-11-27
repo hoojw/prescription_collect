@@ -1,0 +1,20 @@
+[Unit]
+Description=Visible Meituan Chrome login window for store %i
+After=network-online.target
+Wants=network-online.target
+Conflicts=meituan-store-chrome@%i.service
+
+[Service]
+Type=simple
+User=root
+Group=root
+Environment=DISPLAY=:1
+Environment=XAUTHORITY=/root/.Xauthority
+Environment=HOME=/opt/meituan-chrome-profiles/%i
+EnvironmentFile=/etc/prescription-collector/browsers/%i.env
+ExecStart=/opt/google/chrome/chrome --no-sandbox --disable-dev-shm-usage --remote-debugging-address=127.0.0.1 --remote-debugging-port=${CHROME_PORT} --remote-allow-origins=* --user-data-dir=${CHROME_PROFILE} --noerrdialogs --no-first-run https://yiyao.meituan.com/main/frame#/page/home
+UMask=0077
+NoNewPrivileges=true
+ProtectHome=read-only
+ProtectSystem=strict
+ReadWritePaths=/opt/meituan-chrome-profiles /var/lib/prescription-collector/catalog-inbox /tmp

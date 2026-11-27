@@ -1,0 +1,25 @@
+[Unit]
+Description=Internal Tmall prescription extension batch receiver
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=prescription-collector
+Group=prescription-collector
+WorkingDirectory=/opt/prescription-collector
+Environment=PYTHONDONTWRITEBYTECODE=1
+EnvironmentFile=/etc/prescription-collector/tmall-extension-receiver.env
+ExecStart=/opt/prescription-collector/.venv/bin/python -m tmall_extension_receiver.server --config /etc/prescription-collector/tmall-extension-receiver.json
+Restart=on-failure
+RestartSec=5
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadWritePaths=/var/lib/prescription-collector/stores/tmall-extension
+
+[Install]
+WantedBy=multi-user.target
+

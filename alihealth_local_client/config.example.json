@@ -1,0 +1,18 @@
+{
+  "gateway_url": "https://REPLACE_QIMEN_DOMAIN/router/qmtest",
+  "qimen_methods": {
+    "search": "replacecompany.alihealth.prescriptions.search",
+    "detail": "replacecompany.alihealth.prescription.detail"
+  },
+  "target_app_key": "REPLACE_WITH_JUSHITA_TARGET_APP_KEY",
+  "hospital_id": "REPLACE_HOSPITAL_ID",
+  "output_dir": "/var/lib/prescription-collector/stores/tm-REPLACE_STORE/qimen",
+  "product_index_path": "/var/lib/prescription-collector/stores/tm-REPLACE_STORE/catalog/tmall_product_index.json",
+  "lookback_days": 1,
+  "max_search_span_days": 31,
+  "page_size": 100,
+  "max_pages": 1000,
+  "sign_method": "md5",
+  "request_timeout_seconds": 40,
+  "request_retries": 2
+}
